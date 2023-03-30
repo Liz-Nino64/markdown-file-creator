@@ -2,11 +2,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { default: InputPrompt } = require('inquirer/lib/prompts/input');
-const generation = require("utils/generateMarkdown.js")
+const generation = require("./generateMarkdown")
 const README2 = require("README2.md")
 let data = "New File Contents"
 // TODO: Create an array of questions for user input
-const questions = [
+const questions =
     inquirer
     .prompt[
     {
@@ -18,7 +18,7 @@ const questions = [
         type : "checkbox",
         message : "Which sections do you need for your Markdown file?",
         name : "Sections",
-        choices : ["Description", "Table of Contents", "Installation", "Usage", "License", "Badges", "Badge Colors", "Features", "How to Contribute", "Tests"],
+        choices : ["Description", "Table of Contents", "Installation", "Usage", "Credits", "License", "Badges", "Badge Colors", "Features", "How to Contribute", "Tests"],
     },
     {
         type : "input",
@@ -57,7 +57,7 @@ const questions = [
     },
     {
         input : "input",
-        message : "What color is the badge you would like to use?",
+        message : "What color is the badge that you would like to use?",
         name : "Color",
     },
     {
@@ -80,8 +80,7 @@ const questions = [
         message : "Is there anything else you'd like to add?",
         name : "Add",
     }
-    ]
-];
+    ];
 
 // TODO: Create a function to write README file
 function writeToFile(README2, data) {
